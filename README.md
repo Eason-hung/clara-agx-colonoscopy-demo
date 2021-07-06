@@ -1,10 +1,10 @@
 # Clara AGX Xavier colonoscopy demo
 The demo demonstrates the development sample of realtime colonoscopy polyp segmentation on Clara AGX devkit. The model is a Resnet101-based Unet for polyp segmentation, which trained with Nvidia TLT SDK, the performance on Deepstream (fp16) is ~23 FPS on Xavier iGPU, ~105 FPS on Clara AGX Xavier dGPU (RTX6000).
 ## Prerequired
-1. Clara AGX devkit or Jetson AGX Xavier devkit
-2. Clara AGX SDK for Clara AGX devkit / Jetpack 4.5.1 for Jetson AGX Xavier devkit
-3. Ubuntu Host with nvidia GPU for training models with Nvidia Transfer Learning Toolkit, recommended HW please see https://docs.nvidia.com/tlt/tlt-user-guide/text/tlt_quick_start_guide.html#hardware.
-4. Nvidia TLT, following the link for installation https://docs.nvidia.com/tlt/tlt-user-guide/text/tlt_quick_start_guide.html#software-requirements.
+1. Ubuntu Host with nvidia GPU for training models with Nvidia Transfer Learning Toolkit, recommended HW please see https://docs.nvidia.com/tlt/tlt-user-guide/text/tlt_quick_start_guide.html#hardware.
+2. Nvidia TLT, following the link for installation https://docs.nvidia.com/tlt/tlt-user-guide/text/tlt_quick_start_guide.html#software-requirements.
+3. Clara AGX devkit or Jetson AGX Xavier devkit
+4. Clara AGX SDK for Clara AGX devkit / Jetpack 4.5.1 for Jetson AGX Xavier devkit
 ## Dataset
 1. Training dataset: Kvasir-SEG Dataset. https://datasets.simula.no/kvasir-seg/
 2. Testing video: http://www.depeca.uah.es/colonoscopy_dataset/
