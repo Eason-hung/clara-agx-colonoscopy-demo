@@ -22,6 +22,7 @@ The demo demonstrates the development sample of realtime colonoscopy polyp segme
 3. You will export your model file as .etlt file at the end of the notebook, then we are going to deploy the file on Xavier with deepstream. 
 
 ## Inferencing the models with Nvidida Deepstream 5.1 (the steps here need to be run on Clara AGX Xavier/Jetson Xavier)
+![image](https://github.com/Eason-hung/clara-agx-colonoscopy-demo/blob/main/pipeline.JPG)
 ### Building models
 Currently, TLT Unet model needs to be converted to TRT engine in order to run deepstream apps.
 1. Download tlt-converter https://docs.nvidia.com/metropolis/TLT/tlt-user-guide/text/overview.html
