@@ -1,5 +1,5 @@
 # Clara AGX colonoscopy demo
-The demo demonstrates the development sample of realtime colonoscopy polyp segmentation on Clara AGX devkit. The model is a Resnet101-based Unet for polyp segmentation, which trained with Nvidia TLT SDK, the performance on Deepstream (fp16) is ~23 FPS on Xavier iGPU, ~105 FPS on Clara AGX Xavier dGPU (RTX6000).
+The demo demonstrates the development sample of realtime colonoscopy polyp segmentation on Clara AGX devkit. The model is a Resnet101-based Unet for polyp segmentation, which trained with Nvidia TLT SDK, the performance on Deepstream (fp16) is ~23 FPS on Xavier iGPU, ~105 FPS on Clara AGX dGPU (RTX6000).
 ## Prerequired
 1. Ubuntu Host with nvidia GPU for training models with Nvidia Transfer Learning Toolkit, recommended HW please see https://docs.nvidia.com/tlt/tlt-user-guide/text/tlt_quick_start_guide.html#hardware.
 2. Nvidia TLT, following the link for installation https://docs.nvidia.com/tlt/tlt-user-guide/text/tlt_quick_start_guide.html#software-requirements.
@@ -21,7 +21,7 @@ The demo demonstrates the development sample of realtime colonoscopy polyp segme
 2. Please follow the steps in the jupyter notebook unet_Kvasir_SEG, you will need to set some env variables (such as wokspace path, data path).
 3. You will export your model file as .etlt file at the end of the notebook, then we are going to deploy the file on Xavier with deepstream. 
 
-## Inferencing the models with Nvidida Deepstream 5.1 (the steps here need to be run on Clara AGX Xavier/Jetson Xavier)
+## Inferencing the models with Nvidida Deepstream 5.1 (the steps here need to be run on Clara AGX/Jetson Xavier)
 ![image](https://github.com/Eason-hung/clara-agx-colonoscopy-demo/blob/main/pipeline.JPG)
 ### Building models
 Currently, TLT Unet model needs to be converted to TRT engine in order to run deepstream apps.
@@ -47,7 +47,7 @@ e.g.
 ```
  $ ./deepstream-colonoscopy-app file:///home/nvidia/deepstream-colonoscopy/WL3.mp4
 ```
-## Inferencing models in DGPU mode (Clara AGX Xavier)
+## Inferencing models in DGPU mode (Clara AGX)
 
 NVIDIA Clara AGX Developer Kit includes an NVIDIA RTX 6000 GPU, user can swtich between igpu (in Jetson Xavier) and dgpu (RTX 6000) depends on the usecase.
 More information about NVIDIA Clara AGX Developer Kit, please refer to https://developer.nvidia.com/clara-agx-devkit.
@@ -74,7 +74,7 @@ run tlt-converter-dGPU to convert .etlt file to tensorrt engine.
 ### Compile and run sample code
 Follow the same steps in igpu mode.
 ## Reference
-* Nvidia Clara AGX Xavier: https://developer.nvidia.com/clara-agx-devkit
+* Nvidia Clara AGX: https://developer.nvidia.com/clara-agx-devkit
 * Nvidia deepstream: https://developer.nvidia.com/deepstream-sdk
 * Nvidia Transfer Learning Toolkit: https://developer.nvidia.com/transfer-learning-toolkit
 * The Kvasir-SEG Dataset: https://datasets.simula.no/kvasir-seg/
