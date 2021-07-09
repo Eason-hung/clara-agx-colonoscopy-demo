@@ -13,7 +13,7 @@ The demo demonstrates the development sample of realtime colonoscopy polyp segme
 1. Download and unzip the dataset in https://datasets.simula.no/kvasir-seg/.
 2. Run the preprocessing code
 ```
-  python3 data_preprocess.py
+ $ python3 data_preprocess.py
 ```
 3. If you are going to train with your own dataset, please follow the annotation guide https://docs.nvidia.com/tlt/tlt-user-guide/text/data_annotation_format.html#structured-images-and-masks-folders
 ### Training model in TLT
@@ -28,7 +28,7 @@ Currently, TLT Unet model needs to be converted to TRT engine in order to run de
 1. Download tlt-converter https://docs.nvidia.com/metropolis/TLT/tlt-user-guide/text/overview.html
 2. run tlt-converter to convert .etlt file to tensorrt engine
 ```
-  ./tlt-converter -k your_model_key -e output_model_name -t fp16 -p input_1,1x3x320x320,4x3x320x320,16x3x320x320  input_etle_file
+ $ ./tlt-converter -k your_model_key -e output_model_name -t fp16 -p input_1,1x3x320x320,4x3x320x320,16x3x320x320  input_etle_file
 ```
 ### Set path and properties:
 set the following properties in the code before compiling
@@ -36,16 +36,16 @@ set the following properties in the code before compiling
 2. set SAVE_VIDEO in C++ code to set output option
 ### Compile sample code
 ```
-  cd apps/deepstream-colonoscopy/
-  make
+ $ cd apps/deepstream-colonoscopy/
+ $ make
 ```
 ### Run sample code
 ```
-  ./deepstream-colonoscopy-app <uri>
+ $ ./deepstream-colonoscopy-app <uri>
 ```
 e.g.
 ```
-  ./deepstream-colonoscopy-app file:///home/nvidia/deepstream-colonoscopy/WL3.mp4
+ $ ./deepstream-colonoscopy-app file:///home/nvidia/deepstream-colonoscopy/WL3.mp4
 ```
 ## Inferencing models in DGPU mode (Clara AGX Xavier)
 
@@ -55,21 +55,21 @@ More information about NVIDIA Clara AGX Developer Kit, please refer to https://d
 Before running deepstream application in dgpu mode, need to run gpu swithcing code.
 1. To view the currently installed drivers and their version, use the query command:
 ```
- nvgpuswitch.py query
+  $ nvgpuswitch.py query
 ```
 2. To install the dGPU drivers, use the install command with the dGPU parameter (note that sudo must be used to install drivers):
 ```
- sudo nvgpuswitch.py install dGPU
+  $ sudo nvgpuswitch.py install dGPU
 ```
 3. reboot
 4. The dGPU driver install may be verified once again using the query command:
 ```
- nvgpuswitch.py query
+  $ nvgpuswitch.py query
 ```
 ### Building models
 run tlt-converter-dGPU to convert .etlt file to tensorrt engine.
 ```
- ./tlt-converter-dGPU -k your_model_key -e output_model_name -t fp16 -p input_1,1x3x320x320,4x3x320x320,16x3x320x320  input_etle_file
+  $ ./tlt-converter-dGPU -k your_model_key -e output_model_name -t fp16 -p input_1,1x3x320x320,4x3x320x320,16x3x320x320  input_etle_file
 ```
 ### Compile and run sample code
 Follow the same steps in igpu mode.
